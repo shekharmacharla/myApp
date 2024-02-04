@@ -15,16 +15,17 @@ module.exports = function (config) {
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../../coverage'),
-      reports: ['html', 'lcovonly'],
-      fixWebpackSourcePaths: true
-    },
-    reporters: ['mocha','coverage'],
+    // coverageIstanbulReporter: {
+    //   dir: require('path').join(__dirname, '../../coverage'),
+    //   reports: ['html', 'lcovonly'],
+    //   fixWebpackSourcePaths: true
+    // },
+    reporters: ['coverage'],
     coverageReporter: {
-      reports: ['html', 'lcovonly'],
-      type: 'lcov'
-    },
+      dir: require('path').join(__dirname, 'coverage/'),
+      subdir: '.',
+      reporters:[{type:'lcov'}
+    ],},
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
